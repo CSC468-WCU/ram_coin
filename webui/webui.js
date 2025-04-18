@@ -12,7 +12,7 @@ client.on("error", function (err) {
 app.use(express.static('__dirname'));
 
 app.get('/', function (req, res) {
-    res.redirect('/index.html');
+    res.sendFile(path.join(__dirname, 'index.html'));
 });
 
 app.get('/json', function (req, res) {
