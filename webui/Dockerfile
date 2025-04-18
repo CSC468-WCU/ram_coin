@@ -7,5 +7,5 @@ COPY files/   /apps
 RUN npm install express
 RUN npm install redis@3
 
-CMD ["node", "/webui.js"]
+CMD ["node", "/apps/webui.js"]
 EXPOSE 80
