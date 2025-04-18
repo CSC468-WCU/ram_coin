@@ -1,14 +1,18 @@
 var express = require('express');
 var app = express();
 var redis = require('redis');
+var path = require('path');
+
 
 var client = redis.createClient(6379, 'redis');
 client.on("error", function (err) {
     console.error("Redis error", err);
 });
 
+app.use(express.static('__dirname'));
+
 app.get('/', function (req, res) {
-    res.redirect('index.html');
+    res.redirect('/index.html');
 });
 
 app.get('/json', function (req, res) {
@@ -24,7 +28,6 @@ app.get('/json', function (req, res) {
     });
 });
 
-app.use(express.static('/apps'));
 
 var server = app.listen(80, function () {
     console.log('WEBUI running on port 80');
