@@ -1,4 +1,4 @@
-FROM node:4-slim
+FROM node:23.11-slim
 
 RUN npm install express
 RUN npm install redis@3
